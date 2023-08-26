@@ -29,55 +29,11 @@
 // 8 4 2 4
 // 17 -> такого числа в массиве нет
 
-Console.WriteLine("Введите номер строки");
-int num1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите номер столбца");
-int num2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine();
-
-int [,] matrix = new int [3, 4];
-
-void FillArray(int[,] matrix)
-{
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-            {
-                matrix[i,j]= new Random().Next(0,10);
-                Console.Write(matrix[i,j]+" ");
-            }
-        Console.WriteLine();
-    }
-}
-FillArray(matrix);
-Console.WriteLine();
-
-if(num1>=0 && num1<3 && num2>=0 && num2<4)
-for (int i = 0; i < matrix.GetLength(0); i++)
-{
-    for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            if(i==num1 && j==num2)
-            {
-                Console.WriteLine(matrix[i,j]);
-            }  
-    }
-}
-else
-    {
-        Console.WriteLine("Такого элемента нет");
-        
-    }
-
-
-// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое 
-// элементов в каждом столбце.
-
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+// Console.WriteLine("Введите номер строки");
+// int num1 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите номер столбца");
+// int num2 = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine();
 
 // int [,] matrix = new int [3, 4];
 
@@ -94,20 +50,69 @@ else
 //     }
 // }
 // FillArray(matrix);
+// Console.WriteLine();
 
-// int sum=0;
-// int count=0;
-// double average=0;
-
-// for (int j = 0; j < matrix.GetLength(1); j++)
+// if(num1>=0 && num1<3 && num2>=0 && num2<4)
+// for (int i = 0; i < matrix.GetLength(0); i++)
 // {
-//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             if(i==num1 && j==num2)
+//             {
+//                 Console.WriteLine(matrix[i,j]);
+//             }  
+//     }
+// }
+// else
 //     {
-//         sum+=matrix[i,j];
-//         count++;
+//         Console.WriteLine("Такого элемента нет");
         
 //     }
-// average=(double)sum/count;
-// Console.WriteLine("Среднее арифметическое = "+average);
-// }
+
+
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое 
+// элементов в каждом столбце.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+
+Console.WriteLine("Введите первую размерность");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите вторую размерность");
+int columns = Convert.ToInt32(Console.ReadLine());
+
+int [,] matrix = new int [rows,columns];
+
+void FillArray(int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                matrix[i,j]= new Random().Next(0,10);
+                Console.Write(matrix[i,j]+" ");
+            }
+        Console.WriteLine();
+    }
+}
+FillArray(matrix);
+Console.WriteLine();
+
+int sum=0;
+double average=0;
+
+for (int j = 0; j < matrix.GetLength(1); j++)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        sum+=matrix[i,j];
+    }
+average=(double)sum/rows;
+Console.WriteLine("Среднее арифметическое = "+average);
+sum=0;
+}
       
